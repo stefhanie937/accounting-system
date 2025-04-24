@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Transactions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="Chart of Accounts.html" class="tab">Chart of Accounts</a>
+            <a href="index.html" class="tab active">Entries</a>
+            <a href="general.html" class="tab">General Ledger</a>
+            <a href="balance.html" class="tab">Balance ▼</a>
+            <a href="financial-statement.html" class="tab">Financial Statement ▼</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="journal-entry">
+            <div class="entry-controls">
+                <label for="entry-type">Type:</label>
+                <select id="entry-type">
+                    <option>Journal Entry</option>
+                    <option>Adjusting Journal Entry</option>
+                    <option>Closing Journal Entry</option>
+                    <option>Post Trial Balance</option>
+                </select>
+                <button class="reset-btn">Reset Entries</button>
+            </div>
+            
+            <form id="entry-form">
+                <!-- Row 1 -->
+                <div class="entry-row">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" required>
+
+                    <label for="particular">Particular:</label>
+                    <input type="text" id="particular" placeholder="Enter account title">
+                </div>
+
+                <!-- Row 2 -->
+                <div class="entry-row">
+                    <label for="credit">Credit:</label>
+                    <input type="text" id="credit" placeholder="Enter credit title">
+
+                    <label for="credit-amount">Amount:</label>
+                    <input type="number" id="credit-amount" step="0.01">
+                </div>
+
+                <!-- Row 3 -->
+                <div class="entry-row">
+                    <label for="debit">Debit:</label>
+                    <input type="text" id="debit" placeholder="Enter debit title">
+
+                    <label for="debit-amount">Amount:</label>
+                    <input type="number" id="debit-amount" step="0.01">
+                </div>
+
+                <!-- Row 4 -->
+                <div class="entry-row">
+                    <label for="explanation">Explanation:</label>
+                    <input type="text" id="explanation" placeholder="Enter explanation" style="width: 100%;">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="save-btn">SAVE</button>
+                    <button type="reset" class="reset-btn">RESET</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

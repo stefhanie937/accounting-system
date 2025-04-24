@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+}
+
+.nav-buttons {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+.account-title {
+    font-weight: bold;
+    color: green;
+    text-align: left;
+    padding: 5px;
+}

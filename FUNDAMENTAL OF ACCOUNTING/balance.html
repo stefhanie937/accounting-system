@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trial Balance</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="tab">Entries</a>
+            <a href="Chart of Accounts.html" class="tab">Chart of Accounts</a>
+            <a href="general.html" class="tab">General Ledger</a>
+            <div class="dropdown">
+                <button class="tab active">Balance ▼</button>
+                <div class="dropdown-content">
+                    <a href="#" class="balance-link" data-target="trial-balance">Trial Balance</a>
+                    <a href="#" class="balance-link" data-target="adjusted-trial-balance">Adjusted Trial Balance</a>
+                </div>
+            </div>
+            <a href="#" class="tab">Financial Statement ▼</a>
+        </nav>
+    </header>
+
+    <div class="content">
+        <div id="trial-balance">
+            <h2 class="blue-title">Trial Balance</h2>
+            <table>
+                <tr>
+                    <th>Particulars</th><th>Debit</th><th>Credit</th>
+                </tr>
+                <tr>
+                    <td>CASH IN BANK</td>
+                    <td>10,000.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MAMA, DRAWING</td>
+                    <td></td>
+                    <td>10,000.00</td>
+                </tr>
+                <tr class="total">
+                    <td>Total</td>
+                    <td>10,000.00</td>
+                    <td>10,000.00</td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="adjusted-trial-balance" style="display: none;">
+            <h2 class="yellow-title">Adjusted Trial Balance</h2>
+            <table>
+                <tr>
+                    <th>Particulars</th><th>Debit</th><th>Credit</th>
+                </tr>
+                <tr>
+                    <td>CASH IN BANK</td>
+                    <td>10,000.00</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MAMA, DRAWING</td>
+                    <td></td>
+                    <td>10,000.00</td>
+                </tr>
+                <tr class="total">
+                    <td>Total</td>
+                    <td>10,000.00</td>
+                    <td>10,000.00</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const balanceLinks = document.querySelectorAll('.balance-link');
+            
+            balanceLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('data-target');
+                    
+                    // Hide all balance sections except the one clicked
+                    document.querySelectorAll('#trial-balance, #adjusted-trial-balance').forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    
+                    // Show the selected section
+                    document.getElementById(target).style.display = 'block';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
