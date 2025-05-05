@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal Entries</title>
+    <link rel="stylesheet" href="journal-entries.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="chart-of-accounts.html" class="tab">Chart of Accounts</a>
+            <a href="journal-entries.html" class="tab active">Journal Entry</a>
+            <a href="general-ledger.html" class="tab">General Ledger</a>
+            <a href="balance.html" class="tab">Trial Balance</a>
+            <a href="financial-statement.html" class="tab">Financial Statement</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <section id="journal-entry">
+            <h3>New Journal Entry</h3>
+            <div class="entry-controls">
+                <label for="entry-type">Type:</label>
+                <select id="entry-type">
+                    <option>Journal Entry</option>
+                </select>
+                <button id="reset-entries-btn" class="btn-secondary">Reset All Entries</button>
+            </div>
+            
+            <form id="entry-form">
+                <div class="form-group">
+                    <div class="form-row">
+                        <label for="date">Date:</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="particular">Particular:</label>
+                        <input type="text" id="particular" placeholder="Enter description" required>
+                    </div>
+
+                    <div id="debit-entries">
+                        <h4>Debit Entries (Assets/Expenses)</h4>
+                        <div class="entry-row debit-row">
+                            <select class="debit-account" required>
+                                <option value="">Select Account</option>
+                                <!-- Accounts will be loaded dynamically -->
+                            </select>
+                            <input type="number" class="debit-amount" placeholder="Amount" step="0.01" min="0" required>
+                            <button type="button" class="btn-secondary remove-btn">Remove</button>
+                        </div>
+                    </div>
+                    <button type="button" id="add-debit-btn" class="btn-secondary">+ Add Debit</button>
+                    
+                    <div id="credit-entries">
+                        <h4>Credit Entries (Liabilities/Revenue/Equity)</h4>
+                        <div class="entry-row credit-row">
+                            <select class="credit-account" required>
+                                <option value="">Select Account</option>
+                                <!-- Accounts will be loaded dynamically -->
+                            </select>
+                            <input type="number" class="credit-amount" placeholder="Amount" step="0.01" min="0" required>
+                            <button type="button" class="btn-secondary remove-btn">Remove</button>
+                        </div>
+                    </div>
+                    <button type="button" id="add-credit-btn" class="btn-secondary">+ Add Credit</button>
+
+                    <div class="amount-summary">
+                        <div>Total Debit: <span id="total-debit">PHP 0.00</span></div>
+                        <div>Total Credit: <span id="total-credit">PHP 0.00</span></div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">SAVE ENTRY</button>
+                    <button type="reset" class="btn-secondary">RESET FORM</button>
+                </div>
+            </form>
+        </section>
+
+        <hr>
+
+        <section id="entries-list">
+            <h3>Journal Entries</h3>
+            <div class="entries-table-container">
+                <table id="entriesTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Account Title</th>
+                            <th>Debits</th>
+                            <th>Credits</th>
+                            <th>Particular</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="entriesTableBody">
+                        <!-- Entries will be loaded here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    
+    <script src="journal-entries.js"></script>
+</body>
+</html>
